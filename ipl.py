@@ -3,6 +3,7 @@ import tkinter as tk
 from tkinter import messagebox
 from bs4 import BeautifulSoup
 import requests
+import webbrowser
 url="https://cricbuzz.com/"
 def score():
 	response=requests.get(url)
@@ -28,11 +29,12 @@ def score():
 root=tk.Tk()
 root.title("IPL live ScoreCard | Manjunathan C.")
 root.config(bg="#00237d")
-root.geometry("800x500")
+root.geometry("800x600")
 ico=PhotoImage(file="icon.png")
 root.iconphoto(True,ico)
 label1=Label(root,text="IPL live ScoreCard",font=("font awesome",18,"bold italic"),bg="#00237d",fg="#f5873b").pack()
 refresh=Button(root,text="Refresh",font=("font awesome",15,"bold italic"),bg="#f5873b",fg="#00237d",borderwidth=5,command=score).place(x=330,y=370)
-refresh=Button(root,text="Exit",font=("font awesome",15,"bold italic"),bg="#f5873b",fg="#00237d",borderwidth=5,command=root.destroy).place(x=353,y=430)
+exit=Button(root,text="Exit",font=("font awesome",15,"bold italic"),bg="#f5873b",fg="#00237d",borderwidth=5,command=root.destroy).place(x=353,y=430)
+contact=Button(root,text="Contact",font=("font awesome",15,"bold italic"),bg="#f5873b",fg="#00237d",borderwidth=5,command=lambda:webbrowser.open("https://github.com/cmanjunathan45/")).place(x=330,y=490)
 score()
 root.mainloop()
